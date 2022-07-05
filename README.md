@@ -1,2 +1,14 @@
-# TelegramBot
-Telegram bot that convert image of zebra into image of horse and visa-versa. And transfers style of one picture to another.
+# StyleTransferBot
+
+В проекте представлена реализация **асинхронного** телеграм-бота, который умеет переносить стиль с одной картинки на другую ([за счет матриц Грамма](https://pytorch.org/tutorials/advanced/neural_style_tutorial.html), а также превращать лошадей взебры и обратно с помощью **cycleGAN** (веса модели взяты [отсюда](https://github.com/Lornatang/CycleGAN-PyTorch))
+
+Запуск бота осуществляется в модуле `bot_async.py`, реализация переноса стиля находится в модуле `styletransfer`, cycleGAN - `GANStyleTransfer`
+
+Для запуска бота нобходимо в модуле `bot_async.py` указать токен бота в переменной `TOKEN`
+
+Для лучшего качества работы можно увеличить размер выходных изображений (в модуле `styletransfer` - параметр `IMAGE_SIZE`, в модуле `GANStyleTransfer` - параметр `IMAGE_SIZE`)
+
+Данная реализация бота **задеплоена на [heroku.com](https://www.heroku.com)**. Бот в телеграмме - @DLS_StyleTransferBot. В силу ограниченности ресурсов на бесплатном тарифе, выходные картинки имеют маленький размер, что может влиять на качество работы бота.
+
+
+[По этой ссылке](https://youtu.be/850hptj-DsI) есть демонстрация работы бота, запущенного на локально машине с GPU.
